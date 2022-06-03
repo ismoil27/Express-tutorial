@@ -3,11 +3,11 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.status(200).send("Home Page");
+  res.status(200).send("<h1>Home page</h1>");
 });
 
 app.get("/about", (req, res) => {
-  res.status(200).send("About page");
+  res.status(200).send("<h1>About page</h1>");
 });
 
 app.all("*", (req, res) => {
