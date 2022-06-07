@@ -1,16 +1,13 @@
 const express = require("express");
-const { readSync } = require("fs");
-const path = require("path");
+
+const { products } = require("./data");
+
 const app = express();
 
-app.use(express.static("./public"));
-
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./navbar-app/index.html"));
+  res.json(products);
 });
 
-app.all("*", (req, res) => {
-  res.status(404).send("<h1>Resource not found</h1>");
-});
+app.listen(3000, () => console.log("Server is running on port 3000..."));
 
-app.listen(3000, () => console.log("server is running on port 3000"));
+//2-express-tutorial
